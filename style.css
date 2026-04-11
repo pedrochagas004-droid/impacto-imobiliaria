@@ -979,3 +979,52 @@ footer {
     border-radius: 50%;
   }
 }
+
+/* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE (Fim do arquivo) --- */
+@media (max-width: 640px) {
+  
+  /* 1. Ajusta o Header para o menu não bater no logo */
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav a {
+    margin: 0 5px; /* Tira aquele margin-left grande que empurra o link pra fora */
+  }
+
+  /* 2. Ajusta o Hero para o texto não sumir atrás da caixa */
+  .hero {
+    height: auto;
+    padding: 120px 0 60px; /* Dá espaço para o header fixo */
+    text-align: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem; /* Título menor para caber em 2 ou 3 linhas */
+    margin-bottom: 2rem;
+  }
+
+  /* 3. Ajusta a Barra de Busca para não ficar "esmagada" */
+  .search-bar {
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .search-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .btn-search {
+    padding: 0.8rem;
+  }
+}
