@@ -973,52 +973,103 @@ footer {
 }
 
 /* =============================================================
-   MOBILE — até 640px
+   MOBILE — até 640px 
    ============================================================= */
 @media (max-width: 640px) {
-  header .container {
-    flex-direction: column;
-    gap: 15px;
+  
+  /* Impede qualquer elemento de vazar a largura da tela */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
   }
 
+  /* Ajusta o container principal para não ter margens negativas ou padding que vaze */
+  .container {
+    width: 100% !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    box-sizing: border-box;
+  }
+
+  /* --- HEADER FIX --- */
+  header .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
   nav {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os links quebrem linha se necessário */
     justify-content: center;
     gap: 10px;
   }
 
-  /* Galeria Mobile */
-  .photos-wrapper {
-    flex-direction: column;
-    height: auto;
+  /* --- DETALHES FIX (Onde está vazando) --- */
+  .details-grid {
+    display: block; /* Desfaz o grid que pode estar travando a largura */
+    width: 100%;
   }
 
-  .main-photo img {
-    height: 250px;
-    border-radius: 12px 12px 0 0;
+  .main-content, .sidebar {
+    width: 100% !important;
+    display: block;
+  }
+
+  /* Fotos: Garante que as imagens nunca passem do pai */
+  .photos-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: auto !important;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .main-photo img, .side-photos img {
+    width: 100% !important;
+    max-width: 100%;
+    height: auto !important;
+    object-fit: cover;
   }
 
   .side-photos {
-    flex-direction: row;
-    height: 110px;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: auto !important;
   }
 
-  .side-photos img {
-    flex: 1;
-    border-radius: 0 0 8px 8px;
+  /* Texto de Sobre: Garante que o texto quebre linha */
+  .property-text p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
   }
 
-  /* Diferenciais em 1 coluna no mobile pequeno */
-  .grid-features {
-    grid-template-columns: 1fr;
+  /* Itens de info (450m², 4 quartos, etc) */
+  .quick-info {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    width: 100%;
+    gap: 15px;
+    box-sizing: border-box;
   }
 
-  /* Botão WhatsApp */
-  .wa-text { display: none; }
-  .whatsapp-float {
-    padding: 15px;
-    border-radius: 50%;
-    bottom: 20px;
-    right: 20px;
+  /* Diferenciais */
+  .amenities-list {
+    grid-template-columns: 1fr 1fr !important;
+    width: 100%;
+  }
+
+  /* Carrossel de baixo: O único lugar que PODE ter scroll lateral */
+  .photo-slider, .carousel-track {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    gap: 10px;
+  }
+
+  .mini-card {
+    flex: 0 0 200px; /* Mantém o tamanho do card sem esmagar */
   }
 }
