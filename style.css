@@ -980,10 +980,12 @@ footer {
   }
 }
 
-/* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE (Fim do arquivo) --- */
-@media (max-width: 640px) {
-  
-  /* 1. Ajusta o Header para o menu não bater no logo */
+/* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE --- */
+
+/* --- Mobile (≤ 640px) --- */
+   @media (max-width: 640px) {
+ 
+/* 1. HEADER & HERO (Geral) */
   header .container {
     flex-direction: column;
     gap: 15px;
@@ -997,34 +999,79 @@ footer {
   }
 
   nav a {
-    margin: 0 5px; /* Tira aquele margin-left grande que empurra o link pra fora */
+    margin: 0 5px;
   }
 
-  /* 2. Ajusta o Hero para o texto não sumir atrás da caixa */
   .hero {
     height: auto;
-    padding: 120px 0 60px; /* Dá espaço para o header fixo */
+    padding: 120px 0 60px;
     text-align: center;
   }
 
   .hero-content h2 {
-    font-size: 2rem; /* Título menor para caber em 2 ou 3 linhas */
+    font-size: 2rem;
     margin-bottom: 2rem;
   }
 
-  /* 3. Ajusta a Barra de Busca para não ficar "esmagada" */
+  /* 2. PÁGINA DE DETALHES */
+  .property-details {
+    padding: 40px 0; /* Ajusta o respiro do topo */
+  }
+
+  .photos-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main-photo img {
+    height: 250px;
+  }
+
+  .side-photos {
+    flex-direction: row;
+    height: 120px;
+  }
+
+  .side-photos img {
+    height: 100%;
+    flex: 1;
+  }
+
+  /* Ajuste das informações (Quartos, m², Banheiros) */
+  .quick-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Coloca em duas colunas organizadas */
+    gap: 15px;
+    padding: 20px 0;
+    justify-items: start;
+  }
+
+  .info-item {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  /* Lista de comodidades (Piscina, etc) */
+  .amenities-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  /* 3. UTILITÁRIOS (Busca e WhatsApp) */
   .search-bar {
     width: 100%;
+    flex-direction: column;
     gap: 1rem;
     padding: 1rem;
   }
 
-  .search-item {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
+  .whatsapp-float {
+    padding: 15px;
+    bottom: 20px;
+    right: 20px;
   }
 
-  .btn-search {
-    padding: 0.8rem;
+  .wa-text {
+    display: none; /* Deixa só o ícone no celular pra não tampar o site */
   }
 }
