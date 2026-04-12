@@ -877,173 +877,68 @@ footer {
    16. RESPONSIVIDADE
    ============================================================ */
 
-/* --- Tablet (≤ 1024px) --- */
+/* --- 1. TABLET (Telas de até 1024px) --- */
 @media (max-width: 1024px) {
-  .details-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .sidebar {
-    position: static;
-  }
-
-  .photos-wrapper {
-    height: 380px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
+  .details-grid { grid-template-columns: 1fr; gap: 40px; }
+  .sidebar { position: static; }
+  .photos-wrapper { height: 380px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-brand { grid-column: 1 / -1; }
 }
 
-/* --- Tablet pequeno (≤ 768px) --- */
+/* --- 2. MOBILE GERAL (Telas de até 768px) --- */
 @media (max-width: 768px) {
-  .hero-content h2 {
-    font-size: 2.5rem;
-  }
-
-  .search-bar {
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .btn-search {
+  .hero-content h2 { font-size: 2.5rem; }
+  
+  /* Ajuste das barras de busca (Home e Imóveis) */
+  .search-bar, .search-bar-imoveis { 
+    flex-direction: column; 
+    gap: 1.5rem; 
     width: 100%;
+    padding: 1.5rem;
   }
-
-  .section-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    text-align: center;
-  }
+  
+  .btn-search { width: 100%; }
+  .section-header { text-align: center; align-items: center; }
+  .testimonial-grid { grid-template-columns: 1fr; }
 }
 
-/* --- Mobile (≤ 640px) --- */
+/* --- 3. AJUSTE FINO CELULAR (Telas de até 640px) --- */
 @media (max-width: 640px) {
-  .property-details {
-    padding: 90px 0 60px;
-  }
+  /* Header & Nav */
+  header .container { flex-direction: column; gap: 15px; }
+  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  nav a { margin: 0 5px; font-size: 0.85rem; }
 
-  .photos-wrapper {
-    flex-direction: column;
-    height: auto;
-  }
+  /* Hero Section */
+  .hero { height: auto; padding: 120px 0 60px; text-align: center; }
+  .hero-content h2 { font-size: 2rem; }
 
-  .main-photo,
-  .side-photos {
-    flex: none;
-  }
+  /* Galeria de Fotos (imovel-detalhes.html) */
+  .photos-wrapper { flex-direction: column; height: auto; }
+  .main-photo img { height: 260px; border-radius: 12px 12px 0 0; }
+  .side-photos { flex-direction: row; height: 120px; gap: 8px; }
+  .side-photos img { height: 100%; flex: 1; border-radius: 0; }
 
-  .main-photo img {
-    height: 260px;
+  /* Infos e Comodidades */
+  .quick-info { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 15px; 
   }
+  .amenities-list { grid-template-columns: 1fr 1fr; }
 
-  .side-photos {
-    flex-direction: row;
-  }
-
-  .side-photos img {
-    height: 140px;
-    flex: 1;
-  }
-
-  .quick-info {
-    gap: 18px;
-  }
-
-  .amenities-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .wa-text {
-    display: none;
-  }
-
-  .whatsapp-float {
-    padding: 15px;
-    border-radius: 50%;
+  /* Footer e WhatsApp */
+  .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .wa-text { display: none; } /* Esconde texto no celular */
+  .whatsapp-float { 
+    padding: 12px; 
+    bottom: 20px; 
+    right: 20px;
+    border-radius: 50%; /* Vira um botão circular */
   }
 }
 
-/* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE --- */
-@media (max-width: 640px) {
-  /* 1. Ajusta o Header para o menu não bater no logo */
-  header .container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  nav a {
-    margin: 0 5px; /* Tira aquele margin-left grande que empurra o link pra fora */
-  }
-
-  /* 2. Ajusta o Hero para o texto não sumir atrás da caixa */
-  .hero {
-    height: auto;
-    padding: 120px 0 60px; /* Dá espaço para o header fixo */
-    text-align: center;
-  }
-
-  .hero-content h2 {
-    font-size: 2rem; /* Título menor para caber em 2 ou 3 linhas */
-    margin-bottom: 2rem;
-  }
-
-  /* 3. Ajusta a Barra de Busca para não ficar "esmagada" */
-  .search-bar {
-    width: 100%;
-    gap: 1rem;
-    padding: 1rem;
-  }
-
-  .search-item {
-    border-bottom: 1px solid #eee;
-    padding-bottom: 10px;
-  }
-
-  .btn-search {
-    padding: 0.8rem;
-  }
-}
-
-/* Seção 16 - Responsividade (Apenas Celular) */
-@media (max-width: 640px) {
-  header .container {
-    flex-direction: column; /* Empilha: Logo em cima, Menu embaixo */
-    gap: 15px;
-  }
-
-  nav {
-    gap: 10px; /* Diminui o espaço pros links caberem na largura do iPhone */
-  }
-
-  nav a {
-    margin-left: 0; /* Remove margens que podem empurrar o menu pra fora */
-    font-size: 0.85rem;
-  }
-}
 /* ============================================================
-   FIM DOS AJUSTES EXTRAS DE REFINAMENTO MOBILE
+   FIM DOS AJUSTES DE RESPONSIVIDADE
    ============================================================ */
