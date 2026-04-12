@@ -901,38 +901,149 @@ footer {
   }
 }
 
-/* --- Mobile e Tablet (≤ 768px) --- */
+/* --- Tablet pequeno (≤ 768px) --- */
 @media (max-width: 768px) {
-  
-  /* 1. Header e Menu */
-  header .container { flex-direction: column; gap: 15px; }
-  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  nav a { margin: 0 5px; font-size: 0.9rem; }
-
-  /* 2. Hero e Busca */
-  .hero { height: auto; padding: 100px 0 60px; text-align: center; }
-  .hero-content h2 { font-size: 2rem; margin-bottom: 2rem; }
-  .search-bar { flex-direction: column; width: 100%; gap: 1rem; padding: 1.5rem; }
-
-  /* 3. Página de Detalhes */
-  .photos-wrapper { flex-direction: column; height: auto; }
-  .main-photo img { height: 250px; border-radius: 12px 12px 0 0; }
-  .side-photos { flex-direction: row; height: 110px; gap: 8px; }
-  .side-photos img { flex: 1; height: 100%; border-radius: 0; }
-
-  .quick-info { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; /* Alinha Quartos e Banheiros em 2 colunas */
-    gap: 15px; 
-    padding: 20px 0;
+  .hero-content h2 {
+    font-size: 2.5rem;
   }
-  .info-item { justify-content: flex-start; font-size: 0.9rem; }
 
-  .amenities-list { grid-template-columns: 1fr 1fr; }
+  .search-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-  /* 4. Rodapé e WhatsApp */
-  .footer-grid { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-  .whatsapp-float { padding: 15px; bottom: 20px; right: 20px; }
-  .wa-text { display: none; } /* Deixa só o ícone para não poluir a tela */
+  .btn-search {
+    width: 100%;
+  }
 
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+}
+
+/* --- Mobile (≤ 640px) --- */
+@media (max-width: 640px) {
+  .property-details {
+    padding: 90px 0 60px;
+  }
+
+  .photos-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .main-photo,
+  .side-photos {
+    flex: none;
+  }
+
+  .main-photo img {
+    height: 260px;
+  }
+
+  .side-photos {
+    flex-direction: row;
+  }
+
+  .side-photos img {
+    height: 140px;
+    flex: 1;
+  }
+
+  .quick-info {
+    gap: 18px;
+  }
+
+  .amenities-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .wa-text {
+    display: none;
+  }
+
+  .whatsapp-float {
+    padding: 15px;
+    border-radius: 50%;
+  }
+}
+
+/* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE --- */
+@media (max-width: 640px) {
+  /* 1. Ajusta o Header para o menu não bater no logo */
+  header .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+/* ============================================================
+   FIM DOS AJUSTES EXTRAS DE REFINAMENTO MOBILE
+   ============================================================ */
+
+  nav a {
+    margin: 0 5px; /* Tira aquele margin-left grande que empurra o link pra fora */
+  }
+
+  /* 2. Ajusta o Hero para o texto não sumir atrás da caixa */
+  .hero {
+    height: auto;
+    padding: 120px 0 60px; /* Dá espaço para o header fixo */
+    text-align: center;
+  }
+
+  .hero-content h2 {
+    font-size: 2rem; /* Título menor para caber em 2 ou 3 linhas */
+    margin-bottom: 2rem;
+  }
+
+  /* 3. Ajusta a Barra de Busca para não ficar "esmagada" */
+  .search-bar {
+    width: 100%;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .search-item {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+  }
+
+  .btn-search {
+    padding: 0.8rem;
+  }
+}
+
+/* Seção 16 - Responsividade (Apenas Celular) */
+@media (max-width: 640px) {
+  header .container {
+    flex-direction: column; /* Empilha: Logo em cima, Menu embaixo */
+    gap: 15px;
+  }
+
+  nav {
+    gap: 10px; /* Diminui o espaço pros links caberem na largura do iPhone */
+  }
+
+  nav a {
+    margin-left: 0; /* Remove margens que podem empurrar o menu pra fora */
+    font-size: 0.85rem;
+  }
 }
