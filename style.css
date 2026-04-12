@@ -981,9 +981,6 @@ footer {
 }
 
 /* --- AJUSTES EXTRAS DE REFINAMENTO MOBILE --- */
-
-/* --- Mobile (≤ 640px) --- */
-   @media (max-width: 640px) {
  
 /* 1. HEADER & HERO (Geral) */
   header .container {
