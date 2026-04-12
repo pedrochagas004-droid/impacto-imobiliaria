@@ -994,9 +994,6 @@ footer {
     justify-content: center;
     gap: 10px;
   }
-/* ============================================================
-   FIM DOS AJUSTES EXTRAS DE REFINAMENTO MOBILE
-   ============================================================ */
 
   nav a {
     margin: 0 5px; /* Tira aquele margin-left grande que empurra o link pra fora */
@@ -1047,3 +1044,6 @@ footer {
     font-size: 0.85rem;
   }
 }
+/* ============================================================
+   FIM DOS AJUSTES EXTRAS DE REFINAMENTO MOBILE
+   ============================================================ */
