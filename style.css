@@ -874,73 +874,219 @@ footer {
 }
 
 /* ============================================================
-   16. RESPONSIVIDADE 
+   16. RESPONSIVIDADE
+   Páginas cobertas: index.html | imoveis.html | imovel-detalhes.html
    ============================================================ */
-
-/* --- Tablet (Até 1024px) --- */
+ 
+ 
+/* =============================================================
+   TABLET LARGO — até 1024px
+   Afeta: todas as páginas
+   ============================================================= */
 @media (max-width: 1024px) {
-  .details-grid { grid-template-columns: 1fr; gap: 40px; }
-  .sidebar { position: static; }
-  .photos-wrapper { height: 380px; }
+ 
+  /* -- imovel-detalhes: colapsa grid em coluna única -- */
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+ 
+  /* Sidebar sai do sticky e flui normalmente */
+  .sidebar {
+    position: static;
+  }
+ 
+  /* Galeria reduz altura */
+  .photos-wrapper {
+    height: 380px;
+  }
+ 
+  /* -- Todas as páginas: footer em 2 colunas -- */
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+ 
+  /* Marca ocupa a linha inteira */
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
 }
-
-/* --- Mobile Geral (Até 768px) --- */
+ 
+ 
+/* =============================================================
+   TABLET — até 768px
+   Afeta: index.html | imoveis.html
+   ============================================================= */
 @media (max-width: 768px) {
-  
-  /* Centraliza Título e evita quebra de linha */
-  .section-header { 
-    text-align: center; 
-    align-items: center; 
+ 
+  /* -- index: hero -- */
+  .hero-content h2 {
+    font-size: 2.5rem;
+  }
+ 
+  /* -- index: barra de busca do hero -- */
+  .search-bar {
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+  }
+ 
+  /* -- imoveis: barra de filtros -- */
+  .search-bar-imoveis {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto 30px;
+  }
+ 
+  /* Botão de busca / filtros ocupa linha inteira */
+  .btn-search {
+    width: 100%;
+  }
+ 
+  /* -- index & imoveis: cabeçalho de seção --
+     Na página de imóveis, centraliza "Todos os Imóveis";
+     No index, empilha título + link "Ver todos" */
+  .section-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
     width: 100%;
     padding: 0;
   }
-  .section-header h2 { 
-    font-size: 2.2rem; 
-    white-space: nowrap; /* Tenta manter "Todos os Imóveis" em uma linha */
+ 
+  .section-header h2 {
+    font-size: 2.2rem;
+    white-space: nowrap; /* mantém "Todos os Imóveis" em uma linha */
   }
-
-  /* CORREÇÃO DO GRID: Centraliza e ajusta largura */
+ 
+  /* -- index & imoveis: grid de cards --
+     auto-fit com mínimo menor para caber 1 card por linha em telas estreitas */
   .properties-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-content: center;
     gap: 20px;
   }
-
-  /* Barras de busca 100% de largura */
-  .search-bar, .search-bar-imoveis { 
-    flex-direction: column; 
-    width: 100% !important; 
-    margin: 0 auto 30px;
+ 
+  /* -- index: depoimentos em coluna única -- */
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* -- index: diferenciais em 2 colunas (eram 3) -- */
+  .grid-features {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  /* -- todas as páginas: footer em coluna única -- */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+ 
+  /* Links do footer centralizados */
+  .footer-links {
+    align-items: center;
   }
 }
-
-/* --- Ajuste Fino Celular (Até 640px) --- */
+ 
+ 
+/* =============================================================
+   MOBILE — até 640px
+   Afeta: todas as páginas
+   ============================================================= */
 @media (max-width: 640px) {
-  
-  /* Título no celular muito pequeno (ajuste para caber) */
-  .section-header h2 { 
-    font-size: 1.8rem; 
-    white-space: normal; 
+ 
+  /* -- todas: header empilha logo + nav -- */
+  header .container {
+    flex-direction: column;
+    gap: 14px;
   }
-
-  /* Galeria na página de detalhes */
-  .photos-wrapper { flex-direction: column; height: auto; }
-  .main-photo img { height: 250px; border-radius: 12px 12px 0 0; }
-  .side-photos { flex-direction: row; height: 100px; gap: 8px; }
-  .side-photos img { height: 100%; flex: 1; border-radius: 0; }
-
-  /* Grid de ícones (Quartos, Banheiros, m²) */
-  .quick-info { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
+ 
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+  }
+ 
+  nav a {
+    margin: 0 4px;
+    font-size: 0.85rem;
+  }
+ 
+  /* -- index: hero texto menor -- */
+  .hero-content h2 {
+    font-size: 2rem;
+  }
+ 
+  /* -- imoveis: título ajusta ao celular pequeno -- */
+  .section-header h2 {
+    font-size: 1.8rem;
+    white-space: normal; /* permite quebrar linha se necessário */
+  }
+ 
+  /* -- imovel-detalhes: padding do main reduzido -- */
+  .property-details {
+    padding: 90px 0 60px;
+  }
+ 
+  /* -- imovel-detalhes: galeria em coluna única -- */
+  .photos-wrapper {
+    flex-direction: column;
+    height: auto;
+  }
+ 
+  .main-photo,
+  .side-photos {
+    flex: none;
+  }
+ 
+  .main-photo img {
+    height: 250px;
+    border-radius: 12px 12px 0 0;
+  }
+ 
+  /* Fotos secundárias ficam lado a lado abaixo da principal */
+  .side-photos {
+    flex-direction: row;
+    height: 100px;
+    gap: 8px;
+  }
+ 
+  .side-photos img {
+    height: 100%;
+    flex: 1;
+    border-radius: 0 0 12px 12px;
+  }
+ 
+  /* -- imovel-detalhes: quick-info em grid 2×2 -- */
+  .quick-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 15px;
     padding: 20px 0;
   }
-
-  /* Limpeza do Header */
-  header .container { flex-direction: column; gap: 15px; }
-  nav { gap: 10px; justify-content: center; }
-  nav a { margin: 0 5px; font-size: 0.85rem; }
-
-  .wa-text { display: none; }
+ 
+  /* -- imovel-detalhes: diferenciais em 2 colunas -- */
+  .amenities-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+ 
+  /* -- index: diferenciais em 1 coluna -- */
+  .grid-features {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* -- todas: botão WhatsApp vira ícone circular -- */
+  .wa-text {
+    display: none;
+  }
+ 
+  .whatsapp-float {
+    padding: 15px;
+    border-radius: 50%;
+  }
 }
