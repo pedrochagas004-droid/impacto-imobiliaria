@@ -874,71 +874,73 @@ footer {
 }
 
 /* ============================================================
-   16. RESPONSIVIDADE
+   16. RESPONSIVIDADE 
    ============================================================ */
 
-/* --- 1. TABLET (Telas de até 1024px) --- */
+/* --- Tablet (Até 1024px) --- */
 @media (max-width: 1024px) {
   .details-grid { grid-template-columns: 1fr; gap: 40px; }
   .sidebar { position: static; }
   .photos-wrapper { height: 380px; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
-  .footer-brand { grid-column: 1 / -1; }
 }
 
-/* --- 2. MOBILE GERAL (Telas de até 768px) --- */
+/* --- Mobile Geral (Até 768px) --- */
 @media (max-width: 768px) {
-  .hero-content h2 { font-size: 2.5rem; }
   
-  /* Ajuste das barras de busca (Home e Imóveis) */
+  /* Centraliza Título e evita quebra de linha */
+  .section-header { 
+    text-align: center; 
+    align-items: center; 
+    width: 100%;
+    padding: 0;
+  }
+  .section-header h2 { 
+    font-size: 2.2rem; 
+    white-space: nowrap; /* Tenta manter "Todos os Imóveis" em uma linha */
+  }
+
+  /* CORREÇÃO DO GRID: Centraliza e ajusta largura */
+  .properties-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Barras de busca 100% de largura */
   .search-bar, .search-bar-imoveis { 
     flex-direction: column; 
-    gap: 1.5rem; 
-    width: 100%;
-    padding: 1.5rem;
+    width: 100% !important; 
+    margin: 0 auto 30px;
   }
-  
-  .btn-search { width: 100%; }
-  .section-header { text-align: center; align-items: center; }
-  .testimonial-grid { grid-template-columns: 1fr; }
 }
 
-/* --- 3. AJUSTE FINO CELULAR (Telas de até 640px) --- */
+/* --- Ajuste Fino Celular (Até 640px) --- */
 @media (max-width: 640px) {
-  /* Header & Nav */
-  header .container { flex-direction: column; gap: 15px; }
-  nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-  nav a { margin: 0 5px; font-size: 0.85rem; }
+  
+  /* Título no celular muito pequeno (ajuste para caber) */
+  .section-header h2 { 
+    font-size: 1.8rem; 
+    white-space: normal; 
+  }
 
-  /* Hero Section */
-  .hero { height: auto; padding: 120px 0 60px; text-align: center; }
-  .hero-content h2 { font-size: 2rem; }
-
-  /* Galeria de Fotos (imovel-detalhes.html) */
+  /* Galeria na página de detalhes */
   .photos-wrapper { flex-direction: column; height: auto; }
-  .main-photo img { height: 260px; border-radius: 12px 12px 0 0; }
-  .side-photos { flex-direction: row; height: 120px; gap: 8px; }
+  .main-photo img { height: 250px; border-radius: 12px 12px 0 0; }
+  .side-photos { flex-direction: row; height: 100px; gap: 8px; }
   .side-photos img { height: 100%; flex: 1; border-radius: 0; }
 
-  /* Infos e Comodidades */
+  /* Grid de ícones (Quartos, Banheiros, m²) */
   .quick-info { 
     display: grid; 
     grid-template-columns: 1fr 1fr; 
-    gap: 15px; 
+    gap: 15px;
+    padding: 20px 0;
   }
-  .amenities-list { grid-template-columns: 1fr 1fr; }
 
-  /* Footer e WhatsApp */
-  .footer-grid { grid-template-columns: 1fr; text-align: center; }
-  .wa-text { display: none; } /* Esconde texto no celular */
-  .whatsapp-float { 
-    padding: 12px; 
-    bottom: 20px; 
-    right: 20px;
-    border-radius: 50%; /* Vira um botão circular */
-  }
+  /* Limpeza do Header */
+  header .container { flex-direction: column; gap: 15px; }
+  nav { gap: 10px; justify-content: center; }
+  nav a { margin: 0 5px; font-size: 0.85rem; }
+
+  .wa-text { display: none; }
 }
-
-/* ============================================================
-   FIM DOS AJUSTES DE RESPONSIVIDADE
-   ============================================================ */
